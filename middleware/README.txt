@@ -1,0 +1,1 @@
+All Google sheets authentication / other stuff goes in this directory.
