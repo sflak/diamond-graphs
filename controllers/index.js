@@ -1,11 +1,11 @@
+// Aggregate all routers into this file. Single import needed in app.js
 var express = require('express')
   , router = express.Router()
   , path = require('path')
 
 // Homepage
 router.get('/', function(req, res) {
-    console.log(req.json)
-    res.sendFile(__basedir + '/views/home.html')
+    res.sendFile(__basedir + '/views/index.html')
 })
 
 // Routers for each page
