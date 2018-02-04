@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Cutive" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css?family=Cutive" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="css/styles.css">
@@ -24,24 +25,95 @@
         </div>
     </header>
 
-    <div class="clear"></div>
-
     <section class="graph">
         <div class="row">
             <div class="col-1-of-3">
-                <input type="file">
-                <input type="select">
+                <form action="#">
+                    <div class="inputs">
+                        <div class="inputs__main">
+                            
+                            <label for="file" class="uploader">
+                                <input type="file" id="file" required>
+                                <span>Upload Data <i class="far fa-file-excel"></i></span>
+                            </label>
+                            
+                            <div class="select">
+                                <!-- <span><i class="fas fa-chevron-down"></i></span> -->
+                                <select class="inputs__main--select">
+                                    <option value="bar">Bar</option>
+                                    <option value="line">Line</option>
+                                    <option value="map">Map</option>
+                                    <option value="bubble">Bubble</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="inputs__options">
+                            <input type="text" placeholder="Title">
+                            <input type="text" placeholder="X-Axis Label">
+                            <input type="text" placeholder="Y-Axis Label">
+                            <p class="optText">options...</p>
+                            <hr>
+                            <div class="inputs__options--graph">
+                                <div class="row">
+                                    <div class="col-1-of-2">
+                                        <select class="inputs__options--select">
+                                            <option value="bar">opt1</option>
+                                            <option value="line">opt2</option>
+                                            <option value="map">opt3</option>
+                                            <option value="bubble">opt4</option>
+                                        </select>
+                                        <select class="inputs__options--select">
+                                            <option value="bar">opt1</option>
+                                            <option value="line">opt2</option>
+                                            <option value="map">opt3</option>
+                                            <option value="bubble">opt4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-1-of-2">
+                                        <select class="inputs__options--select">
+                                            <option value="bar">opt1</option>
+                                            <option value="line">opt2</option>
+                                            <option value="map">opt3</option>
+                                            <option value="bubble">opt4</option>
+                                        </select>
+                                        <select class="inputs__options--select">
+                                            <option value="bar">opt1</option>
+                                            <option value="line">opt2</option>
+                                            <option value="map">opt3</option>
+                                            <option value="bubble">opt4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="submit" type="submit">SUBMIT</button>
+                        </div>
+                        
+                    </div>
+
+                        
+                </form>
+                
+                
             </div>
             <div class="col-2-of-3">
-                <div class="graph">
+                <div class="graph-section">
 
                 </div>
             </div>
         </div>
-
-
     </section>
-    <section class="embed-code"></section>
+    <section class="embed-code">
+        <div class="row">
+            <div class="col-2-of-3">
+                <div class="embed-code__section">
+                    <p>Copy and paste this code to show this visualization in your website...</p>
+                    <div class="embed-code__section__text"></div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
 
     <footer></footer>
 

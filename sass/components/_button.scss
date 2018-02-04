@@ -1,0 +1,18 @@
+.submit {
+    width: 10rem;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    background-color: $color-blue;
+    padding: 1rem;
+    border: 0 none;
+    color: white;
+    font-size: 1.5rem;
+    display: block;
+    margin: 0 auto;
+
+    &:hover {
+        background-color: #45b5ff;
+    }
+
+}

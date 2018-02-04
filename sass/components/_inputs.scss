@@ -1,0 +1,70 @@
+.inputs {
+    &__main {
+     
+        
+        .select {
+            // position: relative;
+            width: 30rem;
+        }
+        // span {
+        //     position: absolute;
+        //     top: 25%;
+        //     right: 5%;
+
+        //     i {
+        //         font-size: 1.7rem;
+        //     }
+        
+        &--select {
+            -webkit-appearance: none;
+            width: 30rem;
+            padding: .5rem;
+            border: solid 1px $color-grey;
+            border-radius: 0;
+            background-color: transparent;
+            font-size: 1.6rem;
+            color: $color-grey;
+
+            &:active {
+                outline: none;
+            }
+        }
+    }
+
+    &__options {
+        border: 1px solid $color-grey;
+        border-radius: 1rem;
+        padding: 1rem;
+        margin-top: 2.3rem;
+        
+
+        input {
+            width: 100%;
+            padding: .5rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: $color-grey;
+
+            &::not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+
+        }
+
+        .optText {
+            font-size: 1.3rem;
+        }
+
+        &--select {
+            width: 100%;
+            appearance: none;
+            padding: 2rem;
+            font-size: 1.5rem;
+            margin: 1rem 0 1rem 0;
+        }
+
+        &--graph {
+            margin-bottom: 2rem;
+        }
+    }
+}
