@@ -1,9 +1,16 @@
+.logo {
+    float: left;
+    width: 6rem;
+    margin-right: 2rem;
+}
+
 h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cutive', Arial, sans-serif;
     font-weight: 400;
-    font-size: 2rem;
-    text-transform: uppercase;
+    font-size: 3rem;
+    text-transform: capitalize;
+    color: $color-blue;
 }
 p {
-    font-size: 1.6rem;
+    font-size: 1.7rem;   
 }
