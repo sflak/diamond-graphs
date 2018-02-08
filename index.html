@@ -9,9 +9,19 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Cutive" rel="stylesheet"> -->
 
     <!-- INCLUDE JQUERY -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <!-- INCLUDE D3.js -->
     <script src="https://d3js.org/d3.v5.js"></script>
+    <!-- INCLUDE TIMESERIES.js -->
+    <script src="js/timeseries.js"></script>
+    <!-- INCLUDE underscore.js -->
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <!-- INCLUDE moment.js -->
+    <script src="http://momentjs.com/downloads/moment.js"></script>
+    <!-- INCLUDE highlight.min.js -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <!-- INCLUDE lodash.js -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js"></script>
 
     <link rel="stylesheet" href="css/styles.css">
 
@@ -25,7 +35,7 @@
             <img class="logo" src="img/diamond-logo@2x.png" alt="logo">
             <h1>Diamond Graphs</h1>
             <div class="col-3-of-4">
-                <p>This tool allows your ogranization to make great data visualization. Simply upload your data as a spreadsheet, choose your desired visualization, and we do the rest! Use the HTML code provided to embed the visualization on your own site.</p>
+                <p>This tool allows your organization to make great data visualizations. Simply upload your data as a spreadsheet, choose your desired visualization, and we do the rest! Use the HTML code provided to embed the visualization on your own site.</p>
             </div>
         </div>
     </header>
@@ -49,6 +59,7 @@
                                     <option value="line">Line</option>
                                     <option value="map">Map</option>
                                     <option value="bubble">Bubble</option>
+                                    <option value="timeseries">Time Series</option>
                                 </select>
                             </div>
                         </div>
@@ -137,6 +148,16 @@
         // On graph type change, change options.
         // TODO: Dynamically change options when a visualization type is selected
         function report (value) {
+
+            //THIS WILL GO ELSEWHERE, for now generates preset timeseries graph
+            if(value=="timeseries"){
+                console.log("generate " + value + " graph")
+                var domEl = 'graph-section';
+                var data = [{'value': 1380854103662},{'value': 1363641921283}
+                    ,{'value': 1361111111183}];
+                var brushEnabled = true;
+                timeseries(domEl, data, brushEnabled);
+            }
             console.log(value);
             return value;
         }
