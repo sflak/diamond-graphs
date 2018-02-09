@@ -22,6 +22,8 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
     <!-- INCLUDE lodash.js -->
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js"></script>
+    <!-- INCLUDE d3pie.js -->
+    <script src="js/d3pie.min.js"></script>
 
     <link rel="stylesheet" href="css/styles.css">
 
@@ -59,7 +61,8 @@
                                     <option value="line">Line</option>
                                     <option value="map">Map</option>
                                     <option value="bubble">Bubble</option>
-                                    <option value="timeseries">Time Series</option>
+                                    <option value="timeseries">Time Instances</option>
+                                    <option value="piechart">Pie Chart</option>
                                 </select>
                             </div>
                         </div>
@@ -102,7 +105,7 @@
                                 </div>
                             </div>
                             
-                            <button class="submit" type="submit" onclick="parseInputs()">SUBMIT</button>
+                            <button id="submit" type="submit">SUBMIT</button>
                         </div>
                         
                     </div>
@@ -113,7 +116,7 @@
                 
             </div>
             <div class="col-2-of-3">
-                <div class="graph-section">
+                <div class="graph-section" id="graph-section">
 
                 </div>
             </div>
@@ -135,6 +138,10 @@
 
     <!-- HELPER FUNCTIONS -->
     <script type="text/javascript">
+        
+        var sub = document.getElementById("submit");
+        sub.addEventListener("click", function(){parseInputs()}, false);
+    
         // Parse the title, xaxis, yaxis of inputs
         function parseInputs () {
             let inputs = [document.getElementById("title").value,
@@ -155,8 +162,232 @@
                 var domEl = 'graph-section';
                 var data = [{'value': 1380854103662},{'value': 1363641921283}
                     ,{'value': 1361111111183}];
-                var brushEnabled = true;
-                timeseries(domEl, data, brushEnabled);
+                var brushEnabled = false;
+                var tseries = new timeseries(domEl, data, brushEnabled, "graph-section");
+                sub.addEventListener("click", function(){document.getElementById("graph-section").innerHTML = ""}, false); 
+            }
+            if(value=="piechart"){
+                var pie;
+                sub.addEventListener("click", function(){pie.destroy()}, false); 
+                pie = new d3pie("graph-section", {
+                    "header": {
+                        "title": {
+                            "text": "Lots of Programming Languages",
+                            // "color": "#819273",
+                            "fontSize": 24,
+                            "font": "open sans"
+                        },
+                        "subtitle": {
+                            "text": "A full pie chart to show off label collision detection and resolution.",
+                            "color": "#999999",
+                            "fontSize": 12,
+                            "font": "open sans"
+                        },
+                        // location: "top-center"
+                        "titleSubtitlePadding": 9
+                    },
+                    "footer": {
+                        // "text": "blah",
+                        "color": "#999999",
+                        "fontSize": 10,
+                        "font": "open sans",
+                        "location": "bottom-left"
+                    },
+                    "size": {
+                        "canvasHeight": 440,
+                        "canvasWidth": 590,
+                        "pieInnerRadius": "31%",
+                        "pieOuterRadius": "90%"
+                    },
+                    "data": {
+                        "sortOrder": "value-desc",
+                        "content": [
+                            {
+                                "label": "JavaScript",
+                                "value": 264131,
+                                "color": "#2484c1"
+                            },
+                            {
+                                "label": "Ruby",
+                                "value": 218812,
+                                "color": "#0c6197"
+                            },
+                            {
+                                "label": "Java",
+                                "value": 157618,
+                                "color": "#4daa4b"
+                            },
+                            {
+                                "label": "PHP",
+                                "value": 114384,
+                                "color": "#90c469"
+                            },
+                            {
+                                "label": "Python",
+                                "value": 95002,
+                                "color": "#daca61"
+                            },
+                            {
+                                "label": "C+",
+                                "value": 78327,
+                                "color": "#e4a14b"
+                            },
+                            {
+                                "label": "C",
+                                "value": 67706,
+                                "color": "#e98125"
+                            },
+                            {
+                                "label": "Objective-C",
+                                "value": 36344,
+                                "color": "#cb2121"
+                            },
+                            {
+                                "label": "Shell",
+                                "value": 28561,
+                                "color": "#830909"
+                            },
+                            {
+                                "label": "Cobol",
+                                "value": 24131,
+                                "color": "#923e99"
+                            },
+                            {
+                                "label": "C#",
+                                "value": 100,
+                                "color": "#ae83d5"
+                            },
+                            {
+                                "label": "Coldfusion",
+                                "value": 68,
+                                "color": "#bf273e"
+                            },
+                            {
+                                "label": "Fortran",
+                                "value": 218812,
+                                "color": "#ce2aeb"
+                            },
+                            {
+                                "label": "Coffeescript",
+                                "value": 157618,
+                                "color": "#bca44a"
+                            },
+                            {
+                                "label": "Node",
+                                "value": 114384,
+                                "color": "#618d1b"
+                            },
+                            {
+                                "label": "Basic",
+                                "value": 95002,
+                                "color": "#1ee67b"
+                            },
+                            {
+                                "label": "Cola",
+                                "value": 36344,
+                                "color": "#b0ec44"
+                            },
+                            {
+                                "label": "Perl",
+                                "value": 32170,
+                                "color": "#a4a0c9"
+                            },
+                            {
+                                "label": "Dart",
+                                "value": 28561,
+                                "color": "#322849"
+                            },
+                            {
+                                "label": "Go",
+                                "value": 264131,
+                                "color": "#86f71a"
+                            },
+                            {
+                                "label": "Groovy",
+                                "value": 218812,
+                                "color": "#d1c87f"
+                            },
+                            {
+                                "label": "Processing",
+                                "value": 157618,
+                                "color": "#7d9058"
+                            },
+                            {
+                                "label": "Smalltalk",
+                                "value": 114384,
+                                "color": "#44b9b0"
+                            },
+                            {
+                                "label": "Scala",
+                                "value": 95002,
+                                "color": "#7c37c0"
+                            },
+                            {
+                                "label": "Visual Basic",
+                                "value": 78327,
+                                "color": "#cc9fb1"
+                            },
+                            {
+                                "label": "Scheme",
+                                "value": 67706,
+                                "color": "#e65414"
+                            },
+                            {
+                                "label": "Rust",
+                                "value": 36344,
+                                "color": "#8b6834"
+                            },
+                            {
+                                "label": "FoxPro",
+                                "value": 32170,
+                                "color": "#248838"
+                            }
+                        ]
+                    },
+                    "labels": {
+                        "outer": {
+                            // "format": "label",
+                            // "hideWhenLessThanPercentage": 3,
+                            "pieDistance": 32
+                        },
+                        "inner": {
+                            "hideWhenLessThanPercentage": 3
+                        },
+                        "mainLabel": {
+                            // "color": "111111",
+                            // "font": "arial",
+                            "fontSize": 11
+                        },
+                        "percentage": {
+                            "color": "#ffffff",
+                            "decimalPlaces": 0
+                        },
+                        "value": {
+                            "color": "#adadad",
+                            "fontSize": 11
+                        },
+                        "lines": {
+                            "enabled": true
+                        },
+                        "truncation": {
+                            "enabled": true
+                        }
+                    },
+                    "effects": {
+                        "pullOutSegmentOnClick": {
+                            "effect": "linear",
+                            "speed": 400,
+                            "size": 8
+                        }
+                    },
+                    "misc": {
+                        "gradient": {
+                            "enabled": true,
+                            "percentage": 100
+                        }
+                    },
+                    "callbacks": {}
+                });
             }
             console.log(value);
             return value;

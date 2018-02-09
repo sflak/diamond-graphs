@@ -92,7 +92,7 @@ body {
   .inputs__options--graph {
     margin-bottom: 2rem; }
 
-.submit {
+#submit {
   width: 10rem;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -104,13 +104,13 @@ body {
   font-size: 1.5rem;
   display: block;
   margin: 0 auto; }
-  .submit:hover {
+  #submit:hover {
     background-color: #45b5ff; }
 
 .graph-section {
   border: 1px solid #b3b3b3;
   border-radius: 1.5rem;
-  height: 44.2rem; }
+  height: 44.2rem; }  
 
 .embed-code__section__text {
   border: 1px solid #29abe2;
