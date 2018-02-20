@@ -49,14 +49,18 @@
                     <div class="inputs">
                         <div class="inputs__main">
                             
-                            <label for="file" class="uploader">
+                            <!-- <label for="file" class="uploader">
                                 <input type="file" id="file" required>
                                 <span>Upload Data <i class="far fa-file-excel"></i></span>
-                            </label>
+                            </label> -->
+
+                            <label for="driveLink" class="inputs__main__label">Paste your Google Sheets Shareable Link:</label>
+                            <input type="text" class="inputs__main__drive-input" id="driveLink" placeholder="ex: https://docs.google.com/spreadsheets/d/<ID>">
                             
                             <div class="select">
                                 <!-- <span><i class="fas fa-chevron-down"></i></span> -->
-                                <select name="Visualization Types" class="inputs__main--select" onchange="report(this.value)">
+                                <label for="graph-type" class="inputs__main__label">Choose you visualization</label>
+                                <select name="Visualization Types" class="inputs__main--select" onchange="report(this.value)" id="graph-type">
                                     <option value="bar">Bar</option>
                                     <option value="line">Line</option>
                                     <option value="map">Map</option>
@@ -105,7 +109,7 @@
                                 </div>
                             </div>
                             
-                            <button id="submit" type="submit">SUBMIT</button>
+                            <button id="submit" type="submit" class="inputs__options__submit">SUBMIT</button>
                         </div>
                         
                     </div>
