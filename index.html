@@ -52,13 +52,14 @@
                     <div class="inputs">
                         <div class="inputs__main">
                             
-                            <!-- <label for="file" class="uploader">
-                                <input type="file" id="file" required>
-                                <span>Upload Data <i class="far fa-file-excel"></i></span>
-                            </label> -->
+                            <label for="file" class="uploader">
+                                <input type="file" id="file" accept=".csv" required>
+                                <span>Upload CSV <i class="far fa-file"></i></span>
+                            </label>
+                            <p class="filename" id="filename"></p>
 
-                            <label for="driveLink" class="inputs__main__label">Paste your Google Sheets Shareable Link:</label>
-                            <input type="text" class="inputs__main__drive-input" id="driveLink" placeholder="ex: https://docs.google.com/spreadsheets/d/<ID>">
+                            <!-- <label for="driveLink" class="inputs__main__label">Paste your Google Sheets Shareable Link:</label>
+                            <input type="text" class="inputs__main__drive-input" id="driveLink" placeholder="ex: https://docs.google.com/spreadsheets/d/<ID>"> -->
                             
                             <div class="select">
                                 <!-- <span><i class="fas fa-chevron-down"></i></span> -->
@@ -401,7 +402,7 @@
         }
     </script>
     <script src="https://apis.google.com/js/api.js"></script>
-    <script src="js/sheets.js"></script>
+    <script src="js/index.js"></script>
 
     </body>
 </html>
