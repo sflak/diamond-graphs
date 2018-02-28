@@ -1,4 +1,5 @@
 
+// File Upload interaction
 let fileInfoArea = $('#filename');
 let deleteFile = $('#deleteFile');
 let fileInput = $('#file').change(function(event){
@@ -16,21 +17,72 @@ deleteFile.click(function(event) {
     $('#driveLink').prop('disabled', false);
 });
 
-// if($('#driveLink').val()){
-//     $('#fileInput').prop('disabled', true);
-// }
-
 let driveLink = $('#driveLink').change(function(event){
     console.log('change');
     console.log(event.target.value);
     let input = event.target.value;
     if(input.length > 0){
-        console.log('set disabled')
         $('#fileInput').prop('disabled', true);
     }
     else {
-        console.log('set enabled')
         $('#fileInput').prop('disabled', false);
     }
     
 });
+
+const parseFile = (file) => {
+    let data = [];
+    Papa.parse(file, {
+        complete: function(results) {
+            console.log("Finished:", results.data);
+            data = results
+            return data;
+        }
+    });
+
+    
+}
+
+
+
+// Form Submit
+$('#graphForm').submit(function(event){
+    event.preventDefault();
+
+    let rawData = {};
+    let graphType = event.target[2].value;
+
+    let fileUpload = event.target[0];
+    let url = event.target[1];
+    
+
+
+    if (fileUpload.value){
+       rawData['file'] = fileUpload.files[0];
+    }
+    else {
+        console.log('url pasted');
+        if(url.value){
+            rawData['url'] = url.value;
+        }
+        else {
+            console.log("nothing in url input");
+        }
+    }
+
+    createViz(rawData, graphType);
+
+    console.log(event);
+});
+
+
+const createViz = (data, type) => {
+
+    console.log('rawdata');
+    console.log(data);
+    console.log('graphType');
+    console.log(type);
+
+}
+
+
