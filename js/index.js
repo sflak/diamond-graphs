@@ -63,6 +63,7 @@ $('#graphForm').submit(function(event){
     else {
         console.log('url pasted');
         if(url.value){
+            console.log("url");
             rawData['url'] = url.value;
         }
         else {
@@ -82,6 +83,24 @@ const createViz = (data, type) => {
     console.log(data);
     console.log('graphType');
     console.log(type);
+
+    config = {};
+
+    if(Object.keys(data)[0] === 'url'){
+        config['download'] = true
+    }
+
+    console.log(config);
+
+    Papa.parse(data, {
+        config: {download: true},
+        complete: function(results) {
+            console.log("Finished:", results.data);
+            data = results
+            return data;
+        }
+    });
+
 
 }
 
