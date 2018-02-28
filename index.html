@@ -24,6 +24,9 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js"></script>
     <!-- INCLUDE d3pie.js -->
     <script src="js/d3pie.min.js"></script>
+    
+    
+
 
     <link rel="stylesheet" href="css/styles.css">
 
@@ -48,15 +51,19 @@
                 <form action="#">
                     <div class="inputs">
                         <div class="inputs__main">
-                            
-                            <!-- <label for="file" class="uploader">
-                                <input type="file" id="file" required>
-                                <span>Upload Data <i class="far fa-file-excel"></i></span>
-                            </label> -->
+                            <!-- File Input -->
+                            <label for="file" class="uploader">
+                                <input type="file" id="file" accept=".csv">
+                                <span>Upload CSV <i class="far fa-file"></i></span>
+                            </label>
+                            <p class="filename" id="filename"></p><div class="deleteFile" id="deleteFile">X</div>
+                            <span class="betweenText">OR</span>
 
+                            <!-- sheets link input -->
                             <label for="driveLink" class="inputs__main__label">Paste your Google Sheets Shareable Link:</label>
                             <input type="text" class="inputs__main__drive-input" id="driveLink" placeholder="ex: https://docs.google.com/spreadsheets/d/<ID>">
                             
+                            <span class="betweenText">Visualization:</span>
                             <div class="select">
                                 <!-- <span><i class="fas fa-chevron-down"></i></span> -->
                                 <label for="graph-type" class="inputs__main__label">Choose you visualization</label>
@@ -126,7 +133,7 @@
             </div>
         </div>
     </section>
-    <section class="embed-code">
+    <!-- <section class="embed-code">
         <div class="row">
             <div class="col-2-of-3">
                 <div class="embed-code__section">
@@ -136,7 +143,7 @@
                 
             </div>
         </div>
-    </section>
+    </section> -->
 
     <footer></footer>
 
@@ -397,6 +404,8 @@
             return value;
         }
     </script>
+    <script src="js/papaparse.min.js"></script>
+    <script src="js/index.js"></script>
 
     </body>
 </html>
