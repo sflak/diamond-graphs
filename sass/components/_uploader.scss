@@ -5,10 +5,10 @@
 }
 
 .uploader {
-    width: 20rem;
-    height: 5rem;
+    width: 15rem;
+    height: 4rem;
     background-color: $color-blue;
-    padding: 1.3rem 0 0 1rem;
+    padding: 1rem 0 0 1rem;
     display: block;
     margin-bottom: 1rem;
 
@@ -16,11 +16,11 @@
         cursor: pointer;
         color: white;
         text-transform: uppercase;
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         
         i {
-            margin-left: 2rem;
-            font-size: 2.3rem;
+            margin-left: 1rem;
+            font-size: 2rem;
         }
     }
 
@@ -28,4 +28,31 @@
         background-color: #45b5ff;
     }
 
+    &:disabled {
+        background-color: #7a9ab0
+    }
+
+}
+.deleteFile {
+    display: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    height: 2.2rem;
+    width: 2.2rem;
+    color: white;
+    text-align: center;
+    background-color: #d0d8de;
+    border-radius: 50%;
+    // display: inline-block;
+
+}
+.betweenText {
+    font-size: 1.8rem;
+    display: block;
+}
+.filename {
+    margin: 1rem;
+    font-size: 1.8rem;
+    // display: inline-block;
+    display: none;
 }
