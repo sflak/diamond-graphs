@@ -1,5 +1,29 @@
 .inputs {
     &__main {
+
+        &__label {
+            display: block;
+            color: $color-blue;
+            font-size: 1.6rem;
+        }
+        &__drive-input {
+            border: 1px solid $color-grey;
+            width: 100%;
+            padding: .5rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: $color-grey-dark;
+
+            &::placeholder {
+                color: $color-grey-light;
+            }
+            &:active {
+                outline: none;
+            }
+            // ::-moz-placeholder {
+            //     color: $color-grey-light;
+            // }
+        }
      
         
         .select {
@@ -16,14 +40,13 @@
         //     }
         
         &--select {
-            -webkit-appearance: none;
-            width: 30rem;
-            padding: .5rem;
+            width: 100%;
             border: solid 1px $color-grey;
             border-radius: 0;
             background-color: transparent;
             font-size: 1.6rem;
-            color: $color-grey;
+            color: $color-grey-dark;
+            opacity: 1;
 
             &:active {
                 outline: none;
@@ -36,6 +59,7 @@
         border-radius: 1rem;
         padding: 1rem;
         margin-top: 2.3rem;
+        opacity: 1;
         
 
         input {
@@ -58,13 +82,31 @@
         &--select {
             width: 100%;
             appearance: none;
-            padding: 2rem;
             font-size: 1.5rem;
             margin: 1rem 0 1rem 0;
         }
 
         &--graph {
             margin-bottom: 2rem;
+        }
+        &__submit {
+            width: 8rem;
+            height: 3rem;
+            appearance: none;
+            background-color: $color-blue;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            letter-spacing: .1rem;
+            margin-top: 2rem;
+
+            &:hover {
+                border: solid 1px $color-blue;
+                background-color: white;
+                color: $color-blue;
+                cursor: pointer;
+            }
+            
         }
     }
 }

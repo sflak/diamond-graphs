@@ -36,35 +36,73 @@ body {
   cursor: pointer; }
 
 .uploader {
-  width: 20rem;
-  height: 5rem;
+  width: 15rem;
+  height: 4rem;
   background-color: #29abe2;
-  padding: 1.3rem 0 0 1rem;
+  padding: 1rem 0 0 1rem;
   display: block;
   margin-bottom: 1rem; }
   .uploader span {
     cursor: pointer;
     color: white;
     text-transform: uppercase;
-    font-size: 1.7rem; }
+    font-size: 1.6rem; }
     .uploader span i {
-      margin-left: 2rem;
-      font-size: 2.3rem; }
+      margin-left: 1rem;
+      font-size: 2rem; }
   .uploader:hover {
     background-color: #45b5ff; }
+  .uploader:disabled {
+    background-color: #7a9ab0; }
+
+.deleteFile {
+  display: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+  height: 2.2rem;
+  width: 2.2rem;
+  color: white;
+  text-align: center;
+  background-color: #d0d8de;
+  border-radius: 50%; }
+
+.betweenText {
+  font-size: 1.8rem;
+  display: block; }
+
+.filename {
+  margin: 1rem;
+  font-size: 1.8rem;
+  display: none; }
+
+.inputs__main__label {
+  display: block;
+  color: #29abe2;
+  font-size: 1.6rem; }
+
+.inputs__main__drive-input {
+  border: 1px solid #b3b3b3;
+  width: 100%;
+  padding: .5rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #777; }
+  .inputs__main__drive-input::placeholder {
+    color: #c9c8c8; }
+  .inputs__main__drive-input:active {
+    outline: none; }
 
 .inputs__main .select {
   width: 30rem; }
 
 .inputs__main--select {
-  -webkit-appearance: none;
-  width: 30rem;
-  padding: .5rem;
+  width: 100%;
   border: solid 1px #b3b3b3;
   border-radius: 0;
   background-color: transparent;
   font-size: 1.6rem;
-  color: #b3b3b3; }
+  color: #777;
+  opacity: 1; }
   .inputs__main--select:active {
     outline: none; }
 
@@ -72,7 +110,8 @@ body {
   border: 1px solid #b3b3b3;
   border-radius: 1rem;
   padding: 1rem;
-  margin-top: 2.3rem; }
+  margin-top: 2.3rem;
+  opacity: 1; }
   .inputs__options input {
     width: 100%;
     padding: .5rem;
@@ -86,13 +125,27 @@ body {
   .inputs__options--select {
     width: 100%;
     appearance: none;
-    padding: 2rem;
     font-size: 1.5rem;
     margin: 1rem 0 1rem 0; }
   .inputs__options--graph {
     margin-bottom: 2rem; }
+  .inputs__options__submit {
+    width: 8rem;
+    height: 3rem;
+    appearance: none;
+    background-color: #29abe2;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    letter-spacing: .1rem;
+    margin-top: 2rem; }
+    .inputs__options__submit:hover {
+      border: solid 1px #29abe2;
+      background-color: white;
+      color: #29abe2;
+      cursor: pointer; }
 
-#submit {
+.submit {
   width: 10rem;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -104,13 +157,13 @@ body {
   font-size: 1.5rem;
   display: block;
   margin: 0 auto; }
-  #submit:hover {
+  .submit:hover {
     background-color: #45b5ff; }
 
 .graph-section {
   border: 1px solid #b3b3b3;
   border-radius: 1.5rem;
-  height: 44.2rem; }  
+  height: 44.2rem; }
 
 .embed-code__section__text {
   border: 1px solid #29abe2;
@@ -179,62 +232,3 @@ p {
 
 .embed-code {
   margin-top: 3rem; }
-
-/* BAR CHART STYLES */
-.chart rect {
-  fill:steelblue;
-}
-
-.chart text {
-    fill: white;
-    font: 10px sans-serif;
-    text-anchor: middle;
-}
-
-/** Styles for TIMESERIES */
-
-.timeseries {
-  width: 100%;
-  padding: 2% 0;
-}
-.circ {
-  fill: #D35400;
-  opacity: 0.6;
-  stroke: rgba(211, 84, 0, 0.7);
-  stroke-width: 5px;
-}
-.domain {
-  display: none;
-  border: 1px solid #b3b3b3;
-  border-radius: 1.5rem;
-  height: 44.2rem;
-}
-.axis path, .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-.axis text {
-  font-size: 12px;
-}
-.tick line {
-  stroke: #d5d5d5;
-  opacity: 0.7;
-}
-.brush .extent {
-  stroke: #fff;
-  fill-opacity: .125;
-  shape-rendering: crispEdges;
-}
-.clear-brush {
-  display: none;
-}
-.brush-control {
-  padding: .5%;
-  width: 100%;
-  text-align: center;
-}
-.brush-info {
-  display: inline-block;
-  font-size: 14px;
-}

@@ -24,6 +24,9 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js"></script>
     <!-- INCLUDE d3pie.js -->
     <script src="js/d3pie.min.js"></script>
+    
+    
+
 
     <link rel="stylesheet" href="css/styles.css">
 
@@ -45,18 +48,26 @@
     <section class="graph">
         <div class="row">
             <div class="col-1-of-3">
-                <form action="#">
+                <form action="#" id="graphForm">
                     <div class="inputs">
                         <div class="inputs__main">
-                            
+                            <!-- File Input -->
                             <label for="file" class="uploader">
-                                <input type="file" id="file" required>
-                                <span>Upload Data <i class="far fa-file-excel"></i></span>
+                                <input type="file" id="file" accept=".csv">
+                                <span>Upload CSV <i class="far fa-file"></i></span>
                             </label>
+                            <p class="filename" id="filename"></p><div class="deleteFile" id="deleteFile">X</div>
+                            <span class="betweenText">OR</span>
+
+                            <!-- sheets link input -->
+                            <label for="driveLink" class="inputs__main__label">Paste your Google Sheets Shareable Link:</label>
+                            <input type="text" class="inputs__main__drive-input" id="driveLink" placeholder="ex: https://docs.google.com/spreadsheets/d/<ID>">
                             
+                            <span class="betweenText">Visualization:</span>
                             <div class="select">
                                 <!-- <span><i class="fas fa-chevron-down"></i></span> -->
-                                <select name="Visualization Types" class="inputs__main--select" onchange="report(this.value)">
+                                <label for="graph-type" class="inputs__main__label">Choose you visualization</label>
+                                <select name="Visualization Types" class="inputs__main--select" onchange="report(this.value)" id="graph-type">
                                     <option value="bar">Bar</option>
                                     <option value="line">Line</option>
                                     <option value="map">Map</option>
@@ -67,6 +78,7 @@
                             </div>
                         </div>
                         <div class="inputs__options">
+                            <p>Graph options...</p>
                             <input id="title" type="text" name="title" placeholder="Title" value="">
                             <input id="xaxis" type="text" name="xaxis" placeholder="X-Axis Label" value="">
                             <input id="yaxis" type="text" name="yaxis" placeholder="Y-Axis Label" value="">
@@ -105,9 +117,9 @@
                                 </div>
                             </div>
                             
-                            <button id="submit" type="submit">SUBMIT</button>
+                            
                         </div>
-                        
+                        <button id="submit" type="submit" class="inputs__options__submit">SUBMIT</button>
                     </div>
 
                         
@@ -122,7 +134,7 @@
             </div>
         </div>
     </section>
-    <section class="embed-code">
+    <!-- <section class="embed-code">
         <div class="row">
             <div class="col-2-of-3">
                 <div class="embed-code__section">
@@ -132,7 +144,7 @@
                 
             </div>
         </div>
-    </section>
+    </section> -->
 
     <footer></footer>
 
@@ -392,7 +404,11 @@
             console.log(value);
             return value;
         }
+    
     </script>
+    <script src="js/bar.js"></script>
+    <script src="js/papaparse.min.js"></script>
+    <script src="js/index.js"></script>
 
     </body>
 </html>

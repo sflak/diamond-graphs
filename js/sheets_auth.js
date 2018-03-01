@@ -1,4 +1,4 @@
-function initClient (CLIENT_ID, API_KEY) {
+window.onload(function initClient (CLIENT_ID, API_KEY) {
     // ID and API keys from Jon's dev console
     let clientId = "442237768412-94tj9jaiggjddjqevjvqhevp9ssr81en.apps.googleusercontent.com"
     let apiKey = "AIzaSyBiTOphuNoHfLmC8u3rSdl5SmS3YfcA1XU"
@@ -15,7 +15,7 @@ function initClient (CLIENT_ID, API_KEY) {
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus)
         updateSignInStatus(gapi.getAuthInstance().isSignedIn.get())
     })
-}
+});
 
 function makeApiCall (folderName, sheetName, range) {
     
