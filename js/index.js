@@ -18,8 +18,6 @@ deleteFile.click(function(event) {
 });
 
 let driveLink = $('#driveLink').change(function(event){
-    console.log('change');
-    console.log(event.target.value);
     let input = event.target.value;
     if(input.length > 0){
         $('#fileInput').prop('disabled', true);
@@ -29,19 +27,6 @@ let driveLink = $('#driveLink').change(function(event){
     }
     
 });
-
-const parseFile = (file) => {
-    let data = [];
-    Papa.parse(file, {
-        complete: function(results) {
-            console.log("Finished:", results.data);
-            data = results
-            return data;
-        }
-    });
-
-    
-}
 
 
 
@@ -61,9 +46,8 @@ $('#graphForm').submit(function(event){
        rawData['file'] = fileUpload.files[0];
     }
     else {
-        console.log('url pasted');
         if(url.value){
-            console.log("url");
+            
             rawData['url'] = url.value;
         }
         else {
@@ -71,35 +55,51 @@ $('#graphForm').submit(function(event){
         }
     }
 
+    if(Object.keys(rawData)[0] === 'url'){
+        Papa.parse(rawData['url'], {
+            config: {download: true},
+            complete: function(results) {
+                createViz(results.data, graphType)
+            }
+        });
+    }
+    else {
+        Papa.parse(rawData['file'], {
+            complete: function(results) {
+                createViz(results.data, graphType)
+            }
+        });
+    }
+    
     createViz(rawData, graphType);
-
-    console.log(event);
 });
 
 
+// USE THESE SWITCH STATEMENTS TO PASS [data] TO YOUR VISUALIZATION
 const createViz = (data, type) => {
 
-    console.log('rawdata');
-    console.log(data);
-    console.log('graphType');
-    console.log(type);
-
-    config = {};
-
-    if(Object.keys(data)[0] === 'url'){
-        config['download'] = true
+    switch(type){
+        case 'bar':
+            console.log('bar graph');
+            createBarChart(data);
+            break;
+        case 'line':
+            console.log('line graph');
+            // createLineGraph(data);
+            break;
+        case 'map':
+            console.log('map graph');
+            break;
+        case 'bubble':
+            console.log('bubble graph');
+            break;
+        case 'timeseries':
+            console.log('timeseries graph');
+            break;
+        case 'piechart':
+            console.log('pie chart');
+            break;
     }
-
-    console.log(config);
-
-    Papa.parse(data, {
-        config: {download: true},
-        complete: function(results) {
-            console.log("Finished:", results.data);
-            data = results
-            return data;
-        }
-    });
 
 
 }
