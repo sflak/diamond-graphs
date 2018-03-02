@@ -78,7 +78,7 @@ $('#graphForm').submit(function(event){
 
 // USE THESE SWITCH STATEMENTS TO PASS [data] TO YOUR VISUALIZATION
 const createViz = (data, type) => {
-
+    document.getElementById("graph-section").innerHTML = "";
     switch(type){
         case 'bar':
             console.log('bar graph');
@@ -99,6 +99,7 @@ const createViz = (data, type) => {
             break;
         case 'piechart':
             console.log('pie chart');
+            createPieChart(data);
             break;
     }
 
