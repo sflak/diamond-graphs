@@ -11,9 +11,11 @@ let fileInput = $('#file').change(function(event){
 });
 
 deleteFile.click(function(event) {
+    
     deleteFile.css('display', 'none');
     fileInfoArea.css('display', 'none');
     $('#file').val('');
+    console.log($('#file').val());
     $('#driveLink').prop('disabled', false);
 });
 
@@ -39,10 +41,8 @@ $('#graphForm').submit(function(event){
 
     let fileUpload = event.target[0];
     let url = event.target[1];
-    
 
-
-    if (fileUpload.value){
+    if (fileUpload.value !== ''){
        rawData['file'] = fileUpload.files[0];
     }
     else {
@@ -57,8 +57,10 @@ $('#graphForm').submit(function(event){
 
     if(Object.keys(rawData)[0] === 'url'){
         Papa.parse(rawData['url'], {
-            config: {download: true},
+            download: true,
             complete: function(results) {
+                console.log('url callback')
+                console.log(results.data)
                 createViz(results.data, graphType)
             }
         });
@@ -71,7 +73,6 @@ $('#graphForm').submit(function(event){
         });
     }
     
-    createViz(rawData, graphType);
 });
 
 
