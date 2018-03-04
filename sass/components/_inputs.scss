@@ -109,4 +109,15 @@
             
         }
     }
+    &__errorText {
+        font-size: 1.3rem;
+        margin-top: -1rem;
+        padding: 0;
+        color: rgb(151, 11, 11);
+    }
+
+}
+
+.invalid{
+    border: 1px solid rgb(151, 11, 11);
 }

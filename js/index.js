@@ -21,8 +21,23 @@ deleteFile.click(function(event) {
 
 let driveLink = $('#driveLink').change(function(event){
     let input = event.target.value;
+    
+    let valid = null;
     if(input.length > 0){
         $('#fileInput').prop('disabled', true);
+
+        let regEx = /https:\/\/docs.google.com\/spreadsheets\/d\/e\/(.*?\/)pub[?]output=csv/;
+        valid = regEx.test(input);
+
+        if(!valid){
+            $('<p class="inputs__errorText">Must be a valid sheets link</p>').insertAfter($('#driveLink'));
+            $('#driveLink').addClass('invalid');
+        }
+        else{
+            $('#driveLink').removeClass('invalid');
+            $('#driveLink').next().remove();
+        }
+
     }
     else {
         $('#fileInput').prop('disabled', false);
@@ -105,5 +120,4 @@ const createViz = (data, type) => {
 
 
 }
-
 
