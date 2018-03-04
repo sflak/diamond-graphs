@@ -92,6 +92,12 @@ body {
   .inputs__main__drive-input:active {
     outline: none; }
 
+.inputs__main__instruc {
+  font-size: 1.2rem;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  color: #9a9a9a; }
+
 .inputs__main .select {
   width: 30rem; }
 
@@ -102,7 +108,8 @@ body {
   background-color: transparent;
   font-size: 1.6rem;
   color: #777;
-  opacity: 1; }
+  opacity: 1;
+  margin-bottom: 1rem; }
   .inputs__main--select:active {
     outline: none; }
 
@@ -144,6 +151,15 @@ body {
       background-color: white;
       color: #29abe2;
       cursor: pointer; }
+
+.inputs__errorText {
+  font-size: 1.3rem;
+  margin-top: -1rem;
+  padding: 0;
+  color: #970b0b; }
+
+.invalid {
+  border: 1px solid #970b0b; }
 
 .submit {
   width: 10rem;
@@ -232,51 +248,3 @@ p {
 
 .embed-code {
   margin-top: 3rem; }
-
-  /** Styles for TIMESERIES */
-
-.timeseries {
-  width: 100%;
-  padding: 2% 0;
-}
-.circ {
-  fill: #D35400;
-  opacity: 0.6;
-  stroke: rgba(211, 84, 0, 0.7);
-  stroke-width: 5px;
-}
-.domain {
-  display: none;
-  border: 1px solid #b3b3b3;
-  border-radius: 1.5rem;
-  height: 44.2rem;
-}
-.axis path, .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-.axis text {
-  font-size: 12px;
-}
-.tick line {
-  stroke: #d5d5d5;
-  opacity: 0.7;
-}
-.brush .extent {
-  stroke: #fff;
-  fill-opacity: .125;
-  shape-rendering: crispEdges;
-}
-.clear-brush {
-  display: none;
-}
-.brush-control {
-  padding: .5%;
-  width: 100%;
-  text-align: center;
-}
-.brush-info {
-  display: inline-block;
-  font-size: 14px;
-}

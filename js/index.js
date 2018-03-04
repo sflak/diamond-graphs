@@ -10,25 +10,89 @@ let fileInput = $('#file').change(function(event){
     $('#driveLink').prop('disabled', true);
 });
 
+
+// IIFE sets the correct instructions even on re-load
+(function(){
+    setDataFormatInstructions()
+}());
+// Change instructions on select
+$('#graph-type').change(function(){
+    setDataFormatInstructions()
+});
+
+function setDataFormatInstructions (){
+    let currentGraphType = $('#graph-type').val()
+    let instr = '';
+    let options = $('<div class="inputs__options"><p>Graph options...</p></div>');
+    switch(currentGraphType){
+        case('bar'):
+            instr = $('<p class="inputs__main__instruc">[BAR INSTRUCTIONS HERE]</p>');
+            options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'))
+            break;
+        case('line'):
+            instr = $('<p class="inputs__main__instruc">[LINE INSTRUCTIONS HERE]</p>');
+            options.append($('<p>none</p>'));
+            break;
+        case('map'):
+            instr = $('<p class="inputs__main__instruc">[MAP INSTRUCTIONS HERE]</p>');
+            options.append($('<p>none</p>'));
+            break;
+        case('bubble'):
+            instr = $('<p class="inputs__main__instruc">[BUBBLE INSTRUCTIONS HERE]</p>');
+            options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'));
+            break;
+        case('timeseries'):
+            instr = $('<p class="inputs__main__instruc">[TIME INSTRUCTIONS HERE]</p>');
+            options.append($('<p>none</p>'));
+            break;
+        case('piechart'):
+            instr = $('<p class="inputs__main__instruc">[PIE INSTRUCTIONS HERE]</p>');
+            options.append($('<input id="title" type="text" name="title" placeholder="Caption" value="">'));
+            break;
+      
+    }
+    $('#dataFormatInst').html(instr);
+    $('#wrapper').html(options);
+}
+$('#graph-type').change(setDataFormatInstructions());
+
+
+
 deleteFile.click(function(event) {
     
     deleteFile.css('display', 'none');
     fileInfoArea.css('display', 'none');
     $('#file').val('');
-    console.log($('#file').val());
     $('#driveLink').prop('disabled', false);
 });
 
 let driveLink = $('#driveLink').change(function(event){
     let input = event.target.value;
+    
+    let valid = null;
     if(input.length > 0){
         $('#fileInput').prop('disabled', true);
+
+        let regEx = /https:\/\/docs.google.com\/spreadsheets\/d\/e\/(.*?\/)pub[?]output=csv/;
+        valid = regEx.test(input);
+
+        if(!valid){
+            $('<p class="inputs__errorText">Must be a valid sheets link</p>').insertAfter($('#driveLink'));
+            $('#driveLink').addClass('invalid');
+        }
+        else{
+            $('#driveLink').removeClass('invalid');
+            $('#driveLink').next().remove();
+        }
+
     }
     else {
         $('#fileInput').prop('disabled', false);
     }
     
 });
+
+
 
 
 
@@ -93,7 +157,6 @@ const createViz = (data, type) => {
             break;
         case 'bubble':
             console.log('bubble graph');
-            createBubble(data);
             break;
         case 'timeseries':
             console.log('timeseries graph');
@@ -106,5 +169,4 @@ const createViz = (data, type) => {
 
 
 }
-
 
