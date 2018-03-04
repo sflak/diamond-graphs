@@ -10,12 +10,51 @@ let fileInput = $('#file').change(function(event){
     $('#driveLink').prop('disabled', true);
 });
 
+
+// IIFE sets the correct instructions even on re-load
+(function(){
+    setDataFormatInstructions()
+}());
+// Change instructions on select
+$('#graph-type').change(function(){
+    setDataFormatInstructions()
+});
+
+function setDataFormatInstructions (){
+    let currentGraphType = $('#graph-type').val()
+    let instr = '';
+    switch(currentGraphType){
+        case('bar'):
+            instr = $('<p class="formatInstructions">[BAR INSTRUCTIONS HERE]</p>');
+            break;
+        case('line'):
+            instr = $('<p class="formatInstructions">[LINE INSTRUCTIONS HERE]</p>');
+            break;
+        case('map'):
+            instr = $('<p class="formatInstructions">[MAP INSTRUCTIONS HERE]</p>');
+            break;
+        case('bubble'):
+            instr = $('<p class="formatInstructions">[BUBBLE INSTRUCTIONS HERE]</p>');
+            break;
+        case('timeseries'):
+            instr = $('<p class="formatInstructions">[TIME INSTRUCTIONS HERE]</p>');
+            break;
+        case('piechart'):
+            instr = $('<p class="formatInstructions">[PIE INSTRUCTIONS HERE]</p>');
+            break;
+      
+    }
+    $('#dataFormatInst').html(instr);
+}
+$('#graph-type').change(setDataFormatInstructions());
+
+
+
 deleteFile.click(function(event) {
     
     deleteFile.css('display', 'none');
     fileInfoArea.css('display', 'none');
     $('#file').val('');
-    console.log($('#file').val());
     $('#driveLink').prop('disabled', false);
 });
 
@@ -44,6 +83,8 @@ let driveLink = $('#driveLink').change(function(event){
     }
     
 });
+
+
 
 
 

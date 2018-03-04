@@ -69,7 +69,7 @@
                             <div class="select">
                                 <!-- <span><i class="fas fa-chevron-down"></i></span> -->
                                 <label for="graph-type" class="inputs__main__label">Choose you visualization</label>
-                                <select name="Visualization Types" class="inputs__main--select" onchange="report(this.value)" id="graph-type">
+                                <select name="Visualization Types" class="inputs__main--select" id="graph-type">
                                     <option value="bar">Bar</option>
                                     <option value="line">Line</option>
                                     <option value="map">Map</option>
@@ -77,6 +77,8 @@
                                     <option value="timeseries">Time Instances</option>
                                     <option value="piechart">Pie Chart</option>
                                 </select>
+                                <div id="dataFormatInst">
+                                </div>
                             </div>
                         </div>
                         <div class="inputs__options">
