@@ -92,6 +92,12 @@ body {
   .inputs__main__drive-input:active {
     outline: none; }
 
+.inputs__main__instruc {
+  font-size: 1.2rem;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  color: #9a9a9a; }
+
 .inputs__main .select {
   width: 30rem; }
 
@@ -102,7 +108,8 @@ body {
   background-color: transparent;
   font-size: 1.6rem;
   color: #777;
-  opacity: 1; }
+  opacity: 1;
+  margin-bottom: 1rem; }
   .inputs__main--select:active {
     outline: none; }
 

@@ -6,6 +6,7 @@
             color: $color-blue;
             font-size: 1.6rem;
         }
+
         &__drive-input {
             border: 1px solid $color-grey;
             width: 100%;
@@ -23,6 +24,12 @@
             // ::-moz-placeholder {
             //     color: $color-grey-light;
             // }
+        }
+        &__instruc{
+            font-size: 1.2rem;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+            color: rgb(154, 154, 154);
         }
      
         
@@ -47,6 +54,7 @@
             font-size: 1.6rem;
             color: $color-grey-dark;
             opacity: 1;
+            margin-bottom: 1rem;
 
             &:active {
                 outline: none;

@@ -23,28 +23,36 @@ $('#graph-type').change(function(){
 function setDataFormatInstructions (){
     let currentGraphType = $('#graph-type').val()
     let instr = '';
+    let options = $('<div class="inputs__options"><p>Graph options...</p></div>');
     switch(currentGraphType){
         case('bar'):
-            instr = $('<p class="formatInstructions">[BAR INSTRUCTIONS HERE]</p>');
+            instr = $('<p class="inputs__main__instruc">[BAR INSTRUCTIONS HERE]</p>');
+            options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'))
             break;
         case('line'):
-            instr = $('<p class="formatInstructions">[LINE INSTRUCTIONS HERE]</p>');
+            instr = $('<p class="inputs__main__instruc">[LINE INSTRUCTIONS HERE]</p>');
+            options.append($('<p>none</p>'));
             break;
         case('map'):
-            instr = $('<p class="formatInstructions">[MAP INSTRUCTIONS HERE]</p>');
+            instr = $('<p class="inputs__main__instruc">[MAP INSTRUCTIONS HERE]</p>');
+            options.append($('<p>none</p>'));
             break;
         case('bubble'):
-            instr = $('<p class="formatInstructions">[BUBBLE INSTRUCTIONS HERE]</p>');
+            instr = $('<p class="inputs__main__instruc">[BUBBLE INSTRUCTIONS HERE]</p>');
+            options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'));
             break;
         case('timeseries'):
-            instr = $('<p class="formatInstructions">[TIME INSTRUCTIONS HERE]</p>');
+            instr = $('<p class="inputs__main__instruc">[TIME INSTRUCTIONS HERE]</p>');
+            options.append($('<p>none</p>'));
             break;
         case('piechart'):
-            instr = $('<p class="formatInstructions">[PIE INSTRUCTIONS HERE]</p>');
+            instr = $('<p class="inputs__main__instruc">[PIE INSTRUCTIONS HERE]</p>');
+            options.append($('<input id="title" type="text" name="title" placeholder="Caption" value="">'));
             break;
       
     }
     $('#dataFormatInst').html(instr);
+    $('#wrapper').html(options);
 }
 $('#graph-type').change(setDataFormatInstructions());
 
