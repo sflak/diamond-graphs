@@ -180,7 +180,7 @@ const createViz = (data, type) => {
             break;
         case 'line':
             console.log('line graph');
-            // createLineGraph(data);
+            createLineGraph(data);
             break;
         case 'map':
             console.log('map graph');
