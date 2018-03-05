@@ -46,24 +46,21 @@ const createLineGraph = (data1) => {
     console.log(maxDomain)
     console.log(maxY)
 
-    // 5. X scale will use the index of our data
     var xScale = d3.scaleLinear()
         .domain([0, maxDomain-1]) // input
         .range([0, width]); // output
 
-    // 6. Y scale will use the randomly generate number 
     var yScale = d3.scaleLinear()
         .domain([0, maxY]) // input 
         .range([height, 0]); // output 
 
-    // 7. d3's line generator
+    // d3's line generator
     var line = d3.line()
         .x(function(d, i) { return xScale(i); }) // set the x values for the line generator
         .y(function(d) { return yScale(d.y); }) // set the y values for the line generator 
         .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-    // 8. An array of objects of length N. Each object has key -> value pair, the key being "y" and the value is a random number
-    // var dataset = d3.range(n).map(function(d) { return {"y": d3.randomUniform(1)() } })
+
     var dataset = []
     for (var i = 0 ; i < yData.length; i++){
         tempData = {y: yData[i]}
@@ -74,14 +71,14 @@ const createLineGraph = (data1) => {
     console.log("dataset is up there") 
 
 
-    // 1. Add the SVG to the page and employ #2
+    // Add the SVG to the page and employ #2
     var svg = d3.select("div#graph-section").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
     .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // 3. Call the x axis in a group tag
+    // Call the x axis in a group tag
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
@@ -108,13 +105,13 @@ const createLineGraph = (data1) => {
         .style('font-size', 14)
         .text(yTitle);
 
-    // 9. Append the path, bind the data, and call the line generator 
+    // Append the path, bind the data, and call the line generator 
     svg.append("path")
         .datum(dataset) // 10. Binds data to the line 
         .attr("class", "line") // Assign a class for styling 
         .attr("d", line); // 11. Calls the line generator 
 
-    // 12. Appends a circle for each datapoint 
+    // Appends a circle for each datapoint 
     svg.selectAll(".dot")
         .data(dataset)
     .enter().append("circle") // Uses the enter().append() method
