@@ -28,8 +28,15 @@
     <script src="js/d3pie.min.js"></script>
     <!-- INCLUDE pie.js -->
     <script src="js/pie.js"></script>
+    <!-- INCLUDE time.js -->
+    <script src="js/time.js"></script>
     
-    
+    <script src="js/convert.js"></script>
+
+
+    <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
+	<script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+
 
 
     <link rel="stylesheet" href="css/styles.css">
@@ -141,6 +148,9 @@
                 <div class="graph-section" id="graph-section">
 
                 </div>
+                <div class="download">Download <i class="fas fa-download"></i></div>
+                <button id='saveButton'>Export my D3 visualization to PNG</button>
+
             </div>
         </div>
     </section>
@@ -173,7 +183,15 @@
             console.log(inputs);
             return inputs;
         }
-
+        document.getElementById('saveButton').addEventListener('click', function(){
+            var svg = document.getElementById('graph-section').children[0];
+	        var svgString = getSVGString(svg);
+	        svgString2Image( svgString, svg.width.baseVal.value, svg.height.baseVal.value, 'png', save ); // passes Blob and filesize String to the callback
+	        function save( dataBlob, filesize ){
+	    	    saveAs( dataBlob, 'D3 vis exported to PNG.png' ); // FileSaver.js function
+            }
+            console.log("does this work")
+        });
         // On graph type change, change options.
         // TODO: Dynamically change options when a visualization type is selected
         function report (value) {

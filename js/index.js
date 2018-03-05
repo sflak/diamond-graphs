@@ -42,12 +42,13 @@ function setDataFormatInstructions (){
             options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'));
             break;
         case('timeseries'):
-            instr = $('<p class="inputs__main__instruc">[TIME INSTRUCTIONS HERE]</p>');
+            instr = $('<p class="inputs__main__instruc">Data should be a single column of dates in the format YYYY/MM/DD</p>');
             options.append($('<p>none</p>'));
             break;
         case('piechart'):
             instr = $('<p class="inputs__main__instruc">[PIE INSTRUCTIONS HERE]</p>');
-            options.append($('<input id="title" type="text" name="title" placeholder="Caption" value="">'));
+            options.append($('<input id="title" type="text" name="title" placeholder="Title" value="My Pie Chart">'));
+            options.append($('<input id="caption" type="text" name="title" placeholder="Caption" value="">'));
             break;
       
     }
@@ -186,6 +187,7 @@ const createViz = (data, type) => {
             break;
         case 'timeseries':
             console.log('timeseries graph');
+            createTimeChart(data);
             break;
         case 'piechart':
             console.log('pie chart');

@@ -181,6 +181,17 @@ body {
   border-radius: 1.5rem;
   height: 44.2rem; }
 
+.download {
+  width: 14rem;
+  height: 4rem;
+  background-color: #29abe2;
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+  padding-top: 5px;
+  margin-top: 2rem;
+  cursor: pointer; }
+
 .embed-code__section__text {
   border: 1px solid #29abe2;
   border-radius: 1rem;

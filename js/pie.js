@@ -15,6 +15,10 @@ const createPieChart = (data) => {
         };
         contentarray.push(ele);    
     }
+    var title = document.getElementById("title").value;
+    var caption = document.getElementById("caption").value;
+
+
     // [
     //     {
     //         "label": "JavaScript",
@@ -160,14 +164,14 @@ const createPieChart = (data) => {
         "header": {
             "title": {
                 //TODOTODTODOTDOTD   HERE IS WHERE PIE CHART TITLE IS CHANGED ________________________________________________
-                "text": "Pie Chart",
+                "text": title,
                 // "color": "#819273",
                 "fontSize": 24,
                 "font": "open sans"
             },
             "subtitle": {
                 //++++++++++++++++++++++++++++++++++++++++++++++BTW HERE IS WHERE CAPTION IS CHANGED
-                "text": "Pie Chart Caption",
+                "text": caption,
                 "color": "#999999",
                 "fontSize": 12,
                 "font": "open sans"
