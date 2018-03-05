@@ -31,7 +31,7 @@ function setDataFormatInstructions (){
             break;
         case('line'):
             instr = $('<p class="inputs__main__instruc">[LINE INSTRUCTIONS HERE]</p>');
-            options.append($('<p>none</p>'));
+            options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'))
             break;
         case('map'):
             instr = $('<p class="inputs__main__instruc">[MAP INSTRUCTIONS HERE]</p>');
@@ -170,7 +170,7 @@ const createViz = (data, type) => {
             break;
         case 'line':
             console.log('line graph');
-            // createLineGraph(data);
+            createLineGraph(data);
             break;
         case 'map':
             console.log('map graph');

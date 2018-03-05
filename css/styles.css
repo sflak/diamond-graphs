@@ -259,3 +259,15 @@ p {
 
 .embed-code {
   margin-top: 3rem; }
+
+
+.line {
+  fill: none;
+  stroke: #000000 ;
+  stroke-width: 3;
+}
+
+.dot {
+  fill: #000000;
+  stroke: #fff;
+}
