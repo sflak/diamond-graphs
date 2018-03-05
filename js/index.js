@@ -66,6 +66,7 @@ deleteFile.click(function(event) {
     $('#driveLink').prop('disabled', false);
 });
 
+
 let driveLink = $('#driveLink').change(function(event){
     let input = event.target.value;
     
