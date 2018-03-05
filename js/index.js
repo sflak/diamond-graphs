@@ -42,7 +42,7 @@ function setDataFormatInstructions (){
             options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'));
             break;
         case('timeseries'):
-            instr = $('<p class="inputs__main__instruc">[TIME INSTRUCTIONS HERE]</p>');
+            instr = $('<p class="inputs__main__instruc">Data should be a single column of dates in the format YYYY/MM/DD</p>');
             options.append($('<p>none</p>'));
             break;
         case('piechart'):
