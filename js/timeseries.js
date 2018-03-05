@@ -87,7 +87,7 @@
             left: 20
         }
         var width = 500;
-        var height = (lessThanDay(padding.pad)) ? (100 - margin.top - margin.bottom) : (370 - margin.top - margin.bottom);
+        var height = 60;
 
         var x = d3.scaleTime().range([0 + margin.right, width - margin.left]),
             y = d3.scaleTime()
@@ -106,7 +106,7 @@
             xFormat = "%m/%d/%y";
             yFormat = "%H:%M";
             var start = new Date(2012, 0, 1, 0, 0, 0, 0).getTime();
-            var stop = new Date(2012, 0, 1, 23, 59, 59, 59).getTime();
+            var stop = new Date(2012, 0, 1, 0, 0, 0, 0).getTime();
             y.domain(d3.extent([start, stop]));
         }
 

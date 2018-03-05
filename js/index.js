@@ -160,6 +160,7 @@ const createViz = (data, type) => {
             break;
         case 'timeseries':
             console.log('timeseries graph');
+            createTimeChart(data);
             break;
         case 'piechart':
             console.log('pie chart');
