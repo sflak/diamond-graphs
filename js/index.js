@@ -47,7 +47,8 @@ function setDataFormatInstructions (){
             break;
         case('piechart'):
             instr = $('<p class="inputs__main__instruc">[PIE INSTRUCTIONS HERE]</p>');
-            options.append($('<input id="title" type="text" name="title" placeholder="Caption" value="">'));
+            options.append($('<input id="title" type="text" name="title" placeholder="Title" value="My Pie Chart">'));
+            options.append($('<input id="caption" type="text" name="title" placeholder="Caption" value="">'));
             break;
       
     }
