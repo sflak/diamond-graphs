@@ -4,7 +4,7 @@ const createTimeChart = (data) => {
         var contentarray = [];
         for(i=0; i<data.length; i++){
             var orig = data[i][0].split('-');
-            var conv = new Date(orig[0], orig[1]-1, orig[2]);
+            var conv = new Date(orig[0], orig[1]-1, orig[2], orig[3], orig[4]);
             var fin = conv.getTime();
             
             const ele = {
