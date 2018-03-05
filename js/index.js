@@ -93,6 +93,30 @@ let driveLink = $('#driveLink').change(function(event){
 });
 
 
+var script3 = document.createElement("script"),
+    script5 = document.createElement("script"),
+    oldD3;
+
+function noConflict() {
+    oldD3 = d3;
+
+    window.d3 = null;
+
+    script5.type = "text/javascript";
+    script5.src= "https://d3js.org/d3.v5.js";
+    script5.addEventListener("load", ready, false);
+    document.head.appendChild(script5);
+}
+
+function ready(){
+    document.getElementById("version3").textContent = oldD3.version;
+    document.getElementById("version5").textContent = d3.version;
+}
+
+script3.type="text/javascript";
+script3.src="http://d3js.org/d3.v3.min.js";
+script3.addEventListener("load", noConflict, false);
+document.head.appendChild(script3);
 
 
 
@@ -157,6 +181,7 @@ const createViz = (data, type) => {
             break;
         case 'bubble':
             console.log('bubble graph');
+            createBubble(data);
             break;
         case 'timeseries':
             console.log('timeseries graph');

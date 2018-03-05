@@ -5,7 +5,7 @@ const createBubble = (data) => {
         "children":[]
     };
     
-    for(int i = 0; i < data.length; i++){
+    for(let i = 0; i < data.length; i++){
         childContent = {"name":data[i][0], "cr":data[i][1]};
         dataArray.children.push(childContent);
     }
@@ -13,16 +13,16 @@ const createBubble = (data) => {
     var W = 500;
     var H = 480;
     
-    var format = d3.format(",d");
+    var format = oldD3.format(",d");
     
-    var color = d3.scale.category10();
+    var color = oldD3.scale.category10();
     
-    var canvas =  d3.select("body").append("svg")
+    var canvas =  oldD3.select("body").append("svg")
                 .attr("width", W)
                 .attr("height", H)
                 .attr("transform", "translate(500,350)");  
     
-    var pack = d3.layout.pack()
+    var pack = oldD3.layout.pack()
                 .size([W, W])
                 .sort(null)
                 .padding(10)
