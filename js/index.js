@@ -106,13 +106,7 @@ function noConflict() {
 
     script5.type = "text/javascript";
     script5.src= "https://d3js.org/d3.v5.js";
-    script5.addEventListener("load", ready, false);
     document.head.appendChild(script5);
-}
-
-function ready(){
-    document.getElementById("version3").textContent = oldD3.version;
-    document.getElementById("version5").textContent = d3.version;
 }
 
 script3.type="text/javascript";
