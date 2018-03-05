@@ -158,6 +158,7 @@ const createViz = (data, type) => {
             break;
         case 'bubble':
             console.log('bubble graph');
+            createBubble(data);
             break;
         case 'timeseries':
             console.log('timeseries graph');
