@@ -155,6 +155,7 @@ body {
 .inputs__errorText {
   font-size: 1.3rem;
   margin-top: -1rem;
+  margin-bottom: 1rem;
   padding: 0;
   color: #970b0b; }
 
