@@ -10,8 +10,9 @@
 
     <!-- INCLUDE JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-    <!-- INCLUDE D3.js -->
-    <script src="https://d3js.org/d3.v5.js"></script>
+   <div id="version3"></div>
+      <div id="version5"></div>
+      <script src="https://d3js.org/d3.v5.js"></script>
     <!-- INCLUDE TIMESERIES.js -->
     <script src="js/timeseries.js"></script>
     <!-- INCLUDE underscore.js -->
@@ -26,14 +27,8 @@
     <script src="js/d3pie.min.js"></script>
     <!-- INCLUDE pie.js -->
     <script src="js/pie.js"></script>
-    <!-- INCLUDE time.js -->
-    <script src="js/time.js"></script>
-
-    <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
-	<script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
-
-
-
+    <!-- Include bubbleChart.js-->
+      <script src="js/bubbleChart.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 
 
@@ -67,30 +62,24 @@
 
                             <!-- sheets link input -->
                             <label for="driveLink" class="inputs__main__label">Paste your Google Sheets Shareable Link:</label>
+                            <input type="text" class="inputs__main__drive-input" id="driveLink" placeholder="ex: https://docs.google.com/spreadsheets/d/<ID>">
                             
-                            <input type="text" class="inputs__main__drive-input" id="driveLink" placeholder="ex: https://docs.google.com/spreadsheets/d/e/<ID>/pub?output=csv">
-                            <p class="inputs__main__instruc">To get the correct link from Google Sheets, go to File &rarr; Advanced &rarr; Publish to the web. Then select Comma Separated Values from the drop down. Copy the resulting link and paste it here. For more detailed instructions, go <a target="blank" href="https://goo.gl/Lc474y">here</a>.</p>
                             <span class="betweenText">Visualization:</span>
                             <div class="select">
                                 <!-- <span><i class="fas fa-chevron-down"></i></span> -->
                                 <label for="graph-type" class="inputs__main__label">Choose you visualization</label>
-                                <select name="Visualization Types" class="inputs__main--select" id="graph-type">
+                                <select name="Visualization Types" class="inputs__main--select" onchange="report(this.value)" id="graph-type">
                                     <option value="bar">Bar</option>
                                     <option value="line">Line</option>
                                     <option value="map">Map</option>
-                                    <option value="bubble">Bubble</option>
+                                    <option value="bubble">Bubble Chart</option>
                                     <option value="timeseries">Time Instances</option>
                                     <option value="piechart">Pie Chart</option>
                                 </select>
-                                <div id="dataFormatInst">
-                                </div>
                             </div>
                         </div>
-                        <div id="wrapper">
-                            
-                        </div>
-                        <!-- <div class="inputs__options">
-                            
+                        <div class="inputs__options">
+                            <p>Graph options...</p>
                             <input id="title" type="text" name="title" placeholder="Title" value="">
                             <input id="xaxis" type="text" name="xaxis" placeholder="X-Axis Label" value="">
                             <input id="yaxis" type="text" name="yaxis" placeholder="Y-Axis Label" value="">
@@ -130,7 +119,7 @@
                             </div>
                             
                             
-                        </div> -->
+                        </div>
                         <button id="submit" type="submit" class="inputs__options__submit">SUBMIT</button>
                     </div>
 
@@ -193,11 +182,11 @@
 
     
     </script>
-     <script src="js/bar.js"></script>
-     <script src="js/papaparse.min.js"></script>
-     <script src="js/bubbleChart.js"></script>
-     <script src="js/index.js"></script>
-     
+    <script src="js/bar.js"></script>
+    <script src="js/papaparse.min.js"></script>
+    <script src="js/bubbleChart.js"></script>
+    <script src="js/index.js"></script>
+    
 
     </body>
 </html>
