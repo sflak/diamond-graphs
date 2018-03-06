@@ -70,7 +70,15 @@ const createBubble = (data) => {
                 .attr("font-size", function(d){ return fontScale(d.cr)})
                 .text(function(d){return d.children ? "" : d.name;});
     
-    canvas.append("svg:title").text("hello");  
+    canvas.append("svg:title").text(document.getElementById("title").value);  
     
-    canvas.append("title").attr("x", (W/2)).attr("y", 0 - (displayMargins.top)/2).attr("text-anchor", "middle").text("Hello");
+    /*var rectangle = canvas.append("rect")
+                    .attr("x", 200)
+                    .attr("y", 30 )
+                    .attr("width", 100)
+                    .attr("height", 50)
+                    .attr("fill", "transparent")
+                    .attr("stroke", 'black');
+    
+    rectangle.append("text").attr("text-anchor", "middle").text("Hello");*/
 }
