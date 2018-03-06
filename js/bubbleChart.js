@@ -11,21 +11,37 @@ const createBubble = (data) => {
     }
     
     var W = 500;
-    var H = 480;
+    var H = 700;
+    
+    var maxDomain;
+    var minDomain;
+    var i = 0;
+    
+    var dataNumbers = [];
+    while(i < dataArray.children.length){
+        dataNumbers.push(dataArray.children[i].cr);
+        i = i + 1;
+    }
+    
+    var minDomain = Math.min(...dataNumbers);
+    var maxDomain = Math.max(...dataNumbers);
     
     var format = oldD3.format(",d");
     
     var color = oldD3.scale.category10();
+
+    var fontScale = oldD3.scale.linear().domain([minDomain, maxDomain]).range([10, 16]);
+    var displayMargins = {top: 20, left:220};
     
-    var canvas =  oldD3.select("body").append("svg")
+    var canvas =  oldD3.select(document.getElementById("graph-section")).append("svg")
                 .attr("width", W)
-                .attr("height", H)
-                .attr("transform", "translate(500,350)");  
+                .attr("height", H);
+                //.attr('transform', 'translate(' + displayMargins.left + ','  + displayMargins.top + ')');
     
     var pack = oldD3.layout.pack()
                 .size([W, W])
                 .sort(null)
-                .padding(10)
+                .padding(8)
                 .value(function(d){return d.cr;}); 
     
     var nodes = canvas.datum(dataArray)
@@ -33,14 +49,28 @@ const createBubble = (data) => {
                 .data(pack.nodes)
                 .enter()
                 .append("g")
-                .attr("transform", function(d){return "translate(" + d.x + "," + d.y + ")";});      
+                .attr("transform", function(d){return "translate(" + d.x  + displayMargins.left + "," + d.y + ")";});      //+ displayMargins.left
     
     nodes.append("circle")
                 .attr("r", function(d) {return d.r; } )
-                .attr("fill", function(d,i) { return !d.children ? color(i) : "white"; })
-                .attr("stroke", "grey");    
+                .attr("fill", function(d,i) { return !d.children ? color(i) : "white"; });
+                //.attr("stroke", "grey");    
     
     nodes.append("text")
-                .text(function(d){return d.children ? "" : d.cr;})
-                .appendChild(function(d){return d.children ? "" : d.name;});//<!-- if statement, if has children dont display name else display it -->     
+                .attr("dy", "0em")
+                .attr("text-anchor", "middle")
+                .attr("font-family", "sans-serif")
+                .attr("font-size", function(d){ return fontScale(d.cr)})
+                .text(function(d){return d.children ? "" : d.cr;});
+    
+    nodes.append("text")
+                .attr("dy", "1em")
+                .attr("text-anchor", "middle")
+                .attr("font-family", "sans-serif")
+                .attr("font-size", function(d){ return fontScale(d.cr)})
+                .text(function(d){return d.children ? "" : d.name;});
+    
+    canvas.append("svg:title").text("hello");  
+    
+    canvas.append("title").attr("x", (W/2)).attr("y", 0 - (displayMargins.top)/2).attr("text-anchor", "middle").text("Hello");
 }
