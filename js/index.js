@@ -36,10 +36,6 @@ function setDataFormatInstructions (){
             instr = $('<p class="inputs__main__instruc">Data should be in two columns. The first column will be the x values, the second the y values. The first row should be the  labels for each axis.</p>');
             options.append($('<p>none</p>'));
             break;
-        case('map'):
-            instr = $('<p class="inputs__main__instruc">[MAP INSTRUCTIONS HERE]</p>');
-            options.append($('<p>none</p>'));
-            break;
         case('bubble'):
             instr = $('<p class="inputs__main__instruc">[BUBBLE INSTRUCTIONS HERE]</p>');
             options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'));
@@ -181,10 +177,7 @@ const createViz = (data, type) => {
         case 'line':
             console.log('line graph');
             createLineGraph(data);
-            break;
-        case 'map':
-            console.log('map graph');
-            break;
+            break;       
         case 'bubble':
             console.log('bubble graph');
             createBubble(data);
