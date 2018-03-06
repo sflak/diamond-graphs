@@ -37,8 +37,8 @@ function setDataFormatInstructions (){
             options.append($('<p>none</p>'));
             break;
         case('bubble'):
-            instr = $('<p class="inputs__main__instruc">[BUBBLE INSTRUCTIONS HERE]</p>');
-            options.append($('<input id="title" type="text" name="title" placeholder="Title" value="">'));
+            instr = $('<p class="inputs__main__instruc">Data should be in two columns. The left is a column of labels, the right are the associated values.</p>');
+            options.append($('<p>none</p>'));
             break;
         case('timeseries'):
             instr = $('<p class="inputs__main__instruc">Data should be a single column of dates in the format YYYY-MM-DD-HH-MM</p>');
